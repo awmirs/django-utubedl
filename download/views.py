@@ -7,8 +7,6 @@ from django.shortcuts import render
 from pytube import *
 
 
-
-
 # defining function
 def youtube(request):
     # checking whether request.method is post or not
@@ -24,9 +22,5 @@ def youtube(request):
         stream.download(output_path=str(Path.home() / "Downloads"))
 
         # returning HTML page
-        return render(request, 'utube.html')
-    return render(request, 'utube.html')
-
-
-def home(request):
+        return render(request, 'home.html')
     return render(request, 'home.html')
