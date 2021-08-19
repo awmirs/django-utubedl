@@ -16,11 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from download.views import youtube
+from download.views import youtube, getinfo
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('', youtube, name='home'),
+    path('', getinfo, name='home'),
+    path('download/', youtube, name='download'),
 
 ]
