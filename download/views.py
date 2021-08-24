@@ -9,7 +9,7 @@ from pytube import *
 
 
 # defining function
-def youtube(request):
+def information(request):
     # checking whether request.method is post or not
     # def x():
     if request.method == 'POST':
@@ -47,5 +47,9 @@ def youtube(request):
     # y.start()
     # return render(request, 'download.html')
 
-def getinfo(request):
+
+def get_link(request):
     return render(request, 'home.html')
+
+def download():
+    pass
