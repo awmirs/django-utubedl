@@ -3,3 +3,9 @@
   font-style: normal;
   src: url("../fonts/RampartOne-Regular.ttf")
 }
+
+.border-custom {
+  border: 2px solid #f5dd5d;
+  border-radius: 10px;
+  padding: 20px;
+}

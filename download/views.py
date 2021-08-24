@@ -23,6 +23,8 @@ def youtube(request):
         # stream = video.streams.get_highest_resolution()
 
         title = video.title
+        thumbnail = video.thumbnail_url
+
 
         # def downloading(streaming, chunk, bytes_remaining):
         #     print(stream.title, ': ', str(round((1 - bytes_remaining / streaming.filesize) * 100, 3)), '% done...')
@@ -33,7 +35,8 @@ def youtube(request):
         # stream.download(filename=video.title + '.mp4', output_path=str(Path.home() / 'Downloads/Video'))
 
         context = {
-            'title': title
+            'title': title,
+            'thumbnail': thumbnail
         }
         return render(request, 'download.html', context)
 

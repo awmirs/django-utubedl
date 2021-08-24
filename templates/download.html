@@ -1,3 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
-<p>{{ title }}</p>
+
+
+{% block form %}
+    <div class="container" style="">
+        <img src="{{ thumbnail }}" alt="Thumbnail">
+        <p class="border-custom" style="color: coral; margin-top: 30px">{{ title }}Some Text Here!</p>
+    </div>
+{% endblock %}
