@@ -1,6 +1,7 @@
 # Create your views here.
 
 # importing all the required modules
+from datetime import timedelta
 import threading
 from pathlib import Path
 
@@ -24,8 +25,9 @@ def information(request):
 
         title = video.title
         thumbnail = video.thumbnail_url
-        size = round(video.streams.get_highest_resolution().filesize / 1000000, 2)  # video file size in Megabytes
-
+        # video file size in Megabytes
+        size = round(video.streams.get_highest_resolution().filesize / 1000000, 2)
+        length = str(timedelta(seconds=video.length))
         # def downloading(streaming, chunk, bytes_remaining):
         #     print(stream.title, ': ', str(round((1 - bytes_remaining / streaming.filesize) * 100, 3)), '% done...')
         #
@@ -38,6 +40,7 @@ def information(request):
             'title': title,
             'thumbnail': thumbnail,
             'size': size,
+            'length': length
         }
         return render(request, 'information.html', context)
 
