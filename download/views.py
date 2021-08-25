@@ -24,7 +24,7 @@ def information(request):
 
         title = video.title
         thumbnail = video.thumbnail_url
-
+        size = round(video.streams.get_highest_resolution().filesize / 1000000, 2)  # video file size in Megabytes
 
         # def downloading(streaming, chunk, bytes_remaining):
         #     print(stream.title, ': ', str(round((1 - bytes_remaining / streaming.filesize) * 100, 3)), '% done...')
@@ -36,16 +36,17 @@ def information(request):
 
         context = {
             'title': title,
-            'thumbnail': thumbnail
+            'thumbnail': thumbnail,
+            'size': size,
         }
-        return render(request, 'download.html', context)
+        return render(request, 'information.html', context)
 
         # returning HTML page
-    return render(request, 'download.html')
+    return render(request, 'information.html')
 
     # y = threading.Thread(target=x)
     # y.start()
-    # return render(request, 'download.html')
+    # return render(request, 'information.html')
 
 
 def get_link(request):
