@@ -5,8 +5,8 @@
 {% block content %}
     <div class="container">
         <img src="{{ thumbnail }}" alt="Thumbnail" width="500">
-        <p class="border-custom" style="float: right">{{ size }} MB</p>
-        <p class="border-custom" style="float: right">{{ length }}</p>
-        <p class="border-custom" style="color: coral; margin-top: 30px">{{ title }}</p>
+        <p class="border-custom" style="float: right"><span style="background-color: #81d4fa">File Size:</span> {{ size }}</p>
+        <p class="border-custom" style="float: right"><span style="background-color: #81d4fa">Video Length:</span> {{ length }}</p>
+        <p class="border-custom" style="color: coral; margin-top: 30px"><span style="background-color: #81d4fa">Video Title:</span> {{ title }}</p>
     </div>
 {% endblock %}

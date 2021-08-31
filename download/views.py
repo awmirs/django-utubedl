@@ -26,8 +26,10 @@ def information(request):
         title = video.title
         thumbnail = video.thumbnail_url
         # video file size in Megabytes
-        # size = round(video.streams.get_highest_resolution().filesize / 1000000, 2)
-        # size = video.streams.get_highest_resolution().filesize
+        try:
+            size = str(round(video.streams.get_highest_resolution().filesize / 1000000, 2)) + ' MB'
+        except:
+            size = 'An error occurred'
         length = str(timedelta(seconds=video.length))
         # def downloading(streaming, chunk, bytes_remaining):
         #     print(stream.title, ': ', str(round((1 - bytes_remaining / streaming.filesize) * 100, 3)), '% done...')
@@ -40,7 +42,7 @@ def information(request):
         context = {
             'title': title,
             'thumbnail': thumbnail,
-            # 'size': size,
+            'size': size,
             'length': length
         }
         return render(request, 'information.html', context)
@@ -55,6 +57,7 @@ def information(request):
 
 def get_link(request):
     return render(request, 'home.html')
+
 
 def download():
     pass
