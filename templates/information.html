@@ -4,9 +4,14 @@
 
 {% block content %}
     <div class="container">
-        <img src="{{ thumbnail }}" alt="Thumbnail" width="500">
-        <p class="border-custom" style="float: right"><span style="background-color: #81d4fa">File Size:</span> {{ size }}</p>
-        <p class="border-custom" style="float: right"><span style="background-color: #81d4fa">Video Length:</span> {{ length }}</p>
-        <p class="border-custom" style="color: coral; margin-top: 30px"><span style="background-color: #81d4fa">Video Title:</span> {{ title }}</p>
+        <img class="border-custom" style="margin-bottom: 20px" src="{{ thumbnail }}" alt="Thumbnail" width="500">
+        <ul style="float: right">
+            <li style="list-style-type: none">
+                <p class="border-custom"><span class="bg-danger" style="color: white; border-radius: 15%; padding: 8px">File Size:</span> {{ size }}</p>
+                <p class="border-custom"><span class="bg-danger" style="background-color: #cccccc; color: white; border-radius: 15%; padding: 8px">Video Length:</span> {{ length }}</p>
+            </li>
+        </ul>
+        <p class="border-custom" style="color: white"><span class="bg-danger" style="background-color: #cccccc; border-radius: 15%; padding: 8px">Video Title:</span> {{ title }}</p>
+
     </div>
 {% endblock %}
