@@ -1,4 +1,4 @@
-#!/home/amir/MyApplications/PycharmProjects/utubedl/bin/python
+#!/home/amir/MyApplications/PycharmProjects/utubedl/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

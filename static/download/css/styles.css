@@ -1,11 +1,59 @@
 @font-face {
-  font-family: "Rampart One";
-  font-style: normal;
-  src: url("../fonts/RampartOne-Regular.ttf")
+    font-family: "Thorn";
+    font-style: normal;
+    src: url("../fonts/THORN.ttf")
 }
 
-.border-custom {
-  border: 2px solid #f5dd5d;
-  border-radius: 10px;
-  padding: 20px;
+.custom-border {
+    border: 2px solid #f5dd5d;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.custom-border-dashed {
+    border: 2px solid #f5dd5d;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.custom-label {
+    color: white;
+    border-radius: 5%;
+    padding: 8px;
+}
+
+.gradient-border {
+    --borderWidth: 3px;
+    background: #1D1F20;
+    position: relative;
+    border-radius: var(--borderWidth);
+    padding: 12px;
+    color: white;
+}
+
+.gradient-border:after {
+    content: '';
+    position: absolute;
+    top: calc(-1 * var(--borderWidth));
+    left: calc(-1 * var(--borderWidth));
+    height: calc(100% + var(--borderWidth) * 2);
+    width: calc(100% + var(--borderWidth) * 2);
+    background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    border-radius: calc(2 * var(--borderWidth));
+    z-index: -1;
+    animation: animatedgradient 3s ease alternate infinite;
+    background-size: 300% 300%;
+}
+
+
+@keyframes animatedgradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
