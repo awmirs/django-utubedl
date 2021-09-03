@@ -7,11 +7,12 @@
     <div class="container"  style="margin-bottom: 20px; height: 380px">
 
         <img class="gradient-border" style="margin-bottom: 20px" src="{{ thumbnail }}" alt="Thumbnail" width="500">
-        <ul style="float: right; list-style-type: none">
+        <ul style="float: right; list-style-type: none; text-align: center">
             <li>
-                <p class="gradient-border"><span class="bg-danger custom-label">File Size :</span> {{ size }}</p>
-                <p class="gradient-border"><span class="bg-danger custom-label">Video Length :</span> {{ length }}</p>
-                <p class="gradient-border" style="float: right; width: 300px; margin-top: 200px; text-align: center;"><span class="bg-success custom-label" style="">Download</span></p>
+                <div class="gradient-border"><span class="bg-danger custom-label">File Size :</span> {{ size }}</div>
+                <br>
+                <div class="gradient-border"><span class="bg-danger custom-label">Video Length :</span> {{ length }}</div>
+                <div class="bg-danger custom-label" style="float: right;width: 300px; margin-top: 200px; border-radius: 2%">Download</div>
             </li>
             <li>
             </li>
@@ -19,7 +20,7 @@
     </div>
 
     <div class="container">
-        <p class="gradient-border"><span class="bg-danger custom-label">Video Title :</span> {{ title }}</p>
+        <div class="gradient-border"><span class="bg-danger custom-label">Video Title :</span> {{ title }}</div>
     </div>
 
 {% endblock %}
