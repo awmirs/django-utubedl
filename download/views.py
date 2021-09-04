@@ -18,7 +18,7 @@ def information(request):
         link = request.POST['link']
 
         # create YouTube object with the provided link
-        video = YouTube(link, on_complete_callback=lambda: print('Download Complete!'))
+        video = YouTube(link)
 
         # setting video resolution
         # stream = video.streams.get_highest_resolution()
@@ -40,6 +40,7 @@ def information(request):
         # stream.download(filename=video.title + '.mp4', output_path=str(Path.home() / 'Downloads/Video'))
 
         context = {
+            'link': link,
             'title': title,
             'thumbnail': thumbnail,
             'size': size,
@@ -59,5 +60,10 @@ def get_link(request):
     return render(request, 'home.html')
 
 
-def download():
-    pass
+def download(request):
+    if request.method == 'POST':
+        link = request.POST['link']
+        video = YouTube(link, on_complete_callback=lambda: print('Download Complete!'))
+        video.streams.get_highest_resolution().download(filename=video.title + '.mp4', output_path=str(Path.home() / 'Downloads/Video'))
+        return render(request, 'download.html')
+    return render(request, 'download.html')
