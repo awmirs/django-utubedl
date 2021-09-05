@@ -25,4 +25,15 @@
     <p id="para_alert"></p>
     </div>
 
+    <script type="text/javascript">
+    let btn = document.getElementById('btn');
+    let para = document.getElementById('para_alert');
+    let link = document.getElementById('link')
+        btn.addEventListener('click', function () {
+            if (link.value !== '') {
+                btn.innerHTML = '<button type="submit" class="btn btn-danger" type="submit" disabled><span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Checking...</button>';
+            }
+            });
+
+    </script>
 {% endblock %}
