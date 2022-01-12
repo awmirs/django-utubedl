@@ -63,7 +63,7 @@ def get_link(request):
 def download(request):
     if request.method == 'POST':
         link = request.POST['link']
-        video = YouTube(link, on_complete_callback=lambda: print('Download Complete!'))
-        video.streams.get_highest_resolution().download(filename=video.title + '.mp4', output_path=str(Path.home() / 'Downloads/Video'))
+        video = YouTube(link)
+        video.streams.get_highest_resolution().download(filename=video.title + '.mp4', output_path=f"{Path.home()}/Downloads/Video")
         return render(request, 'download.html')
     return render(request, 'download.html')
