@@ -27,7 +27,6 @@
     background: #1D1F20;
     position: relative;
     border-radius: var(--borderWidth);
-    padding: 12px;
     color: white;
 }
 
@@ -55,5 +54,37 @@
     }
     100% {
         background-position: 0% 50%;
+    }
+}
+
+/* Progress Bar */
+.progress{
+    height: 10px;
+    text-align: center;
+    width: 70%;
+}
+.progress .color {
+    background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    border-radius: calc(2 * var(--borderWidth));
+    width: 0;
+    height: 10px;
+    animation: progres 2s infinite normal;
+    /*animation: animatedgradient 1s ease infinite alternate;*/
+}
+@keyframes progres{
+    0%{
+      width: 0%;
+    }
+    25%{
+        width: 25%;
+    }
+    50%{
+        width: 50%;
+    }
+    75%{
+        width: 75%;
+    }
+    100%{
+        width: 100%;
     }
 }
