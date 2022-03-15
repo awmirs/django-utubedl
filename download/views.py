@@ -1,20 +1,18 @@
-# Create your views here.
-
-# importing all the required modules
-import threading
 from datetime import timedelta
 from pathlib import Path
-from time import sleep
 
 from django.shortcuts import render
+from django.views import View
 from pytube import *
 
 
-# defining function
-def information(request):
-    # checking whether request.method is post or not
-    # def x():
-    if request.method == 'POST':
+class InformationView(View):
+    template_name = "information.html"
+
+    def get(self, request, *args, **kwargs):
+        pass
+
+    def post(self, request, *args, **kwargs):
         # getting link from frontend
         link = request.POST['link']
         # create YouTube object with the provided link
@@ -36,7 +34,6 @@ def information(request):
             'size': size,
             'length': length
         }
-        video.streams.get_highest_resolution().download()
 
         def progress(stream, _chunk, _file_handle, bytes_remaining):
             current = ((stream.filesize - bytes_remaining) / stream.filesize)
@@ -46,6 +43,11 @@ def information(request):
 
         video.register_on_progress_callback(progress)
 
+        try:
+            video.streams.get_highest_resolution().download(filename=video.title + '.mp4',
+                                                            output_path=str(Path.home() / 'Downloads/Video'))
+        except:
+            print("ERROR")
 
         # def downloading(streaming, chunk, bytes_remaining):
         #     print(stream.title, ': ', str(round((1 - bytes_remaining / streaming.filesize) * 100, 3)), '% done...')
@@ -54,22 +56,16 @@ def information(request):
         #
         # # downloads video
         # stream.download(filename=video.title + '.mp4', output_path=str(Path.home() / 'Downloads/Video'))
+        return render(request, 'information.html', context)
 
 
-        return render(request, 'download.html', context)
+class HomeView(View):
 
-        # returning HTML page
-    return render(request, 'information.html')
-
-    # y = threading.Thread(target=x)
-    # y.start()
-    # return render(request, 'information.html')
+    def get(self, request):
+        return render(request, 'home.html')
 
 
-def get_link(request):
-    return render(request, 'home.html')
-
-
-def download(request):
-
-    return render(request, 'download.html')
+class DownloadView(View):
+    template_name = "download.html"
+    def get(self, request):
+        return render(request, 'download.html')
